@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Packages from './components/Packages';
-import MotorcycleServices from './components/MotorcycleServices';
-import Gallery from './components/Gallery';
-import Location from './components/Location';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import { Analytics } from "@vercel/analytics/react";
+import { useState, useEffect } from "react";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Packages from "./components/Packages";
+import MotorcycleServices from "./components/MotorcycleServices";
+import Gallery from "./components/Gallery";
+import Location from "./components/Location";
+import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -17,18 +18,18 @@ function App() {
       setShowScrollTop(window.scrollY > 500);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNavigate = (section: string) => {
     const element = document.getElementById(section);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -65,6 +66,8 @@ function App() {
           </svg>
         </button>
       )}
+
+      <Analytics />
     </div>
   );
 }
